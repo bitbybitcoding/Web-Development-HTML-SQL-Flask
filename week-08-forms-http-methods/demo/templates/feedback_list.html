@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}All feedback · School Portal{% endblock %}
+{% block content %}
+<h1>All feedback</h1>
+{% if feedback %}
+<p>{{ feedback|length }} response{{ 's' if feedback|length != 1 }}, average rating {{ average }}</p>
+<ul>
+  {% for f in feedback %}
+  <li><strong>{{ f.name }}</strong> gave {{ f.rating }}/5{% if f.comment %}: {{ f.comment }}{% endif %}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No feedback yet. <a href="{{ url_for('feedback') }}">Be the first!</a></p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Leaderboard</h1>
+{% if best %}
+<table>
+  <tr><th>#</th><th>Name</th><th>Score</th></tr>
+  {% for a in best %}<tr><td>{{ loop.index }}</td><td>{{ a.name }}</td><td>{{ a.score }}/{{ a.total }}</td></tr>{% endfor %}
+</table>
+{% else %}<p>No attempts yet.</p>{% endif %}
+{% endblock %}

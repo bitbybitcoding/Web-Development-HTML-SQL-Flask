@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ a.name }}, you scored {{ a.score }}/{{ a.total }}</h1>
+{% if a.score == a.total %}<p>Perfect!</p>
+{% elif wrong_questions %}
+<h2>Review</h2>
+<ul>
+  {% for q in wrong_questions %}<li>{{ q.text }} <strong>Answer: {{ q.choices[q.answer] }}</strong></li>{% endfor %}
+</ul>
+{% endif %}
+<p><a href="{{ url_for('quiz') }}">Try again</a> · <a href="{{ url_for('leaderboard') }}">Leaderboard</a></p>
+{% endblock %}

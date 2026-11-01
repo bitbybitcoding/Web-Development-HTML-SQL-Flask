@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Search · School Portal{% endblock %}
+{% block content %}
+<h1>Search students</h1>
+<form action="{{ url_for('search') }}" method="get">
+  <label for="q">Name contains</label>
+  <input type="search" id="q" name="q" value="{{ q }}">
+  <button type="submit">Search</button>
+</form>
+
+{% if q %}
+  <p>{{ results|length }} result{{ 's' if results|length != 1 }} for "{{ q }}"</p>
+  <ul>{% for s in results %}<li>{{ s.name }} ({{ s['class'] }})</li>{% endfor %}</ul>
+{% endif %}
+{% endblock %}

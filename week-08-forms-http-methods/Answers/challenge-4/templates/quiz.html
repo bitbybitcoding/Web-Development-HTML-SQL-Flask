@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Quiz</h1>
+<form method="post" action="{{ url_for('quiz') }}">
+  {% for q in questions %}
+  <fieldset>
+    <legend>{{ loop.index }}. {{ q.text }}</legend>
+    {% for choice in q.choices %}
+    <label><input type="radio" name="q{{ q.id }}" value="{{ loop.index0 }}"
+      {{ 'checked' if picked.get('q' ~ q.id) == loop.index0|string }}> {{ choice }}</label>
+    {% endfor %}
+  </fieldset>
+  {% endfor %}
+  <button type="submit">Submit answers</button>
+</form>
+{% endblock %}

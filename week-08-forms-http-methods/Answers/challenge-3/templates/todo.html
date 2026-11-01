@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>To-do list</h1>
+<form method="post" action="{{ url_for('add') }}">
+  <label for="text">New task</label>
+  <input type="text" id="text" name="text" autocomplete="off">
+  <button type="submit">Add</button>
+</form>
+
+<p>{{ remaining }} task{{ 's' if remaining != 1 }} left ·
+  <a href="{{ url_for('todo') }}">All</a> ·
+  <a href="{{ url_for('todo', show='open') }}">Open</a> ·
+  <a href="{{ url_for('todo', show='done') }}">Done</a></p>
+
+<ul>
+  {% for t in tasks %}
+  <li>
+    <span class="{{ 'done' if t.done }}">{{ t.text }}</span>
+    <form class="inline" method="post" action="{{ url_for('toggle', task_id=t.id) }}">
+      <button type="submit">{{ 'Undo' if t.done else 'Done' }}</button>
+    </form>
+    <form class="inline" method="post" action="{{ url_for('delete', task_id=t.id) }}">
+      <button type="submit">Delete</button>
+    </form>
+  </li>
+  {% else %}
+  <li>Nothing here.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

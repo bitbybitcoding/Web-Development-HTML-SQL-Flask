@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Web development quiz</h1>
+<form method="post" action="{{ url_for('start') }}">
+  <label for="name">Your name</label>
+  <input type="text" id="name" name="name" value="{{ name }}">
+  <button type="submit">Start the quiz</button>
+</form>
+{% endblock %}

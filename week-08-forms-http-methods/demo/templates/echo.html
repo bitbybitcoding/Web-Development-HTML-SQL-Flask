@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Echo · School Portal{% endblock %}
+{% block content %}
+<h1>Echo</h1>
+<p>This request used the <strong>{{ method }}</strong> method.</p>
+
+<h2>In the URL (request.args)</h2>
+<pre>{{ args.to_dict() }}</pre>
+<h2>In the body (request.form)</h2>
+<pre>{{ form.to_dict() }}</pre>
+
+<h2>Same fields, two ways to send them</h2>
+<form method="get" action="{{ url_for('echo') }}">
+  <label for="a">Nickname (GET)</label><input type="text" id="a" name="nickname">
+  <button>Send with GET</button>
+</form>
+<form method="post" action="{{ url_for('echo') }}">
+  <label for="b">Nickname (POST)</label><input type="text" id="b" name="nickname">
+  <label for="p">Secret (POST)</label><input type="text" id="p" name="secret">
+  <button>Send with POST</button>
+</form>
+{% endblock %}

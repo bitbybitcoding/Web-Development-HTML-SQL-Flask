@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Forms demo</h1>
+<ul>
+  <li><a href="{{ url_for('search') }}">Search</a>: a GET form</li>
+  <li><a href="{{ url_for('echo') }}">Echo</a>: see what the browser really sends</li>
+  <li><a href="{{ url_for('feedback') }}">Feedback</a>: a POST form with validation</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Feedback · School Portal{% endblock %}
+{% block content %}
+<h1>Feedback</h1>
+<form method="post" action="{{ url_for('feedback') }}" novalidate>
+  <label for="name">Your name</label>
+  <input type="text" id="name" name="name" value="{{ form.name }}" required>
+  {% if errors.name %}<p class="error">{{ errors.name }}</p>{% endif %}
+
+  <label for="rating">Rating</label>
+  <select id="rating" name="rating">
+    <option value="">Choose...</option>
+    {% for n in range(1, 6) %}
+    <option value="{{ n }}" {{ 'selected' if form.rating == n|string }}>{{ n }}</option>
+    {% endfor %}
+  </select>
+  {% if errors.rating %}<p class="error">{{ errors.rating }}</p>{% endif %}
+
+  <label for="comment">Comment (optional)</label>
+  <textarea id="comment" name="comment" rows="3">{{ form.comment }}</textarea>
+  {% if errors.comment %}<p class="error">{{ errors.comment }}</p>{% endif %}
+
+  <button type="submit">Send feedback</button>
+</form>
+{% endblock %}

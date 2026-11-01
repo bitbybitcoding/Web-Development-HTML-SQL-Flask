@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>CCA sign-up</h1>
+{% if errors %}<p class="error">Please fix {{ errors|length }} problem{{ 's' if errors|length != 1 }} below.</p>{% endif %}
+<form method="post" action="{{ url_for('signup') }}" novalidate>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="{{ form.name }}" autocomplete="name">
+  {% if errors.name %}<p class="error">{{ errors.name }}</p>{% endif %}
+
+  <label for="class">Class</label>
+  <select id="class" name="class">
+    <option value="">Choose...</option>
+    {% for c in classes %}<option value="{{ c }}" {{ 'selected' if form['class'] == c }}>{{ c }}</option>{% endfor %}
+  </select>
+  {% if errors['class'] %}<p class="error">{{ errors['class'] }}</p>{% endif %}
+
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" value="{{ form.email }}" inputmode="email" autocomplete="email">
+  {% if errors.email %}<p class="error">{{ errors.email }}</p>{% endif %}
+
+  <fieldset>
+    <legend>CCA</legend>
+    {% for c in ccas %}
+    <label><input type="radio" name="cca" value="{{ c }}" {{ 'checked' if form.cca == c }}> {{ c }}</label>
+    {% endfor %}
+  </fieldset>
+  {% if errors.cca %}<p class="error">{{ errors.cca }}</p>{% endif %}
+
+  <label><input type="checkbox" name="agree" value="yes" {{ 'checked' if form.agree == 'yes' }}> I agree to attend sessions</label>
+  {% if errors.agree %}<p class="error">{{ errors.agree }}</p>{% endif %}
+
+  <button type="submit">Sign up</button>
+</form>
+{% endblock %}

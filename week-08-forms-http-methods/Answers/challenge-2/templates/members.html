@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Members</h1>
+{% if members %}
+<table>
+  <tr><th>Name</th><th>Class</th><th>CCA</th></tr>
+  {% for m in members %}<tr><td>{{ m.name }}</td><td>{{ m['class'] }}</td><td>{{ m.cca }}</td></tr>{% endfor %}
+</table>
+{% else %}
+<p>Nobody has signed up yet.</p>
+{% endif %}
+{% endblock %}
