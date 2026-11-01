@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Home · School Portal{% endblock %}
+{% block content %}
+<h1>School Portal</h1>
+<p>There are {{ total }} students in our demo data.</p>
+<p><a class="button" href="{{ url_for('students') }}">See the students</a></p>
+{% endblock %}

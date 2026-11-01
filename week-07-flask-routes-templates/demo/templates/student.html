@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ s.name }} · School Portal{% endblock %}
+{% block content %}
+<h1>{{ s.name }}</h1>
+<p>Class {{ s['class'] }} · average {{ avg }}</p>
+<ul>
+  {% for subject, score in s.scores.items() %}
+  <li>{{ subject }}: {{ score }}{% if score < 50 %} (needs help){% endif %}</li>
+  {% endfor %}
+</ul>
+<p><a href="{{ url_for('students') }}">&larr; Back to all students</a></p>
+{% endblock %}

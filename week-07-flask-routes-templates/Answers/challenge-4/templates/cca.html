@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ c.name }} · CCA Showcase{% endblock %}
+{% block content %}
+<h1>{{ c.name }}</h1>
+<p><span class="tag">{{ c.category }}</span></p>
+<p>{{ c.description }}</p>
+<p><strong>When:</strong> {{ c.day }}s · <strong>Where:</strong> {{ c.venue }}</p>
+{% if same_day %}
+<h2>Also on {{ c.day }}s</h2>
+<ul>{% for o in same_day %}<li><a href="{{ url_for('cca', slug=o.slug) }}">{{ o.name }}</a></li>{% endfor %}</ul>
+{% endif %}
+<p><a href="{{ url_for('ccas') }}">&larr; All CCAs</a></p>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Class Results</h1>
+<p>{{ total }} students. Choose a class:</p>
+<p>
+  <a class="button" href="{{ url_for('by_class', code='3A') }}">3A</a>
+  <a class="button" href="{{ url_for('by_class', code='3B') }}">3B</a>
+  <a class="button" href="{{ url_for('by_class', code='3C') }}">3C</a>
+</p>
+{% endblock %}

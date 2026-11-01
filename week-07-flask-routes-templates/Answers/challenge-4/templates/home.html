@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>CCA Showcase</h1>
+<p>{{ count }} CCAs and {{ total }} members. The biggest is
+   <a href="{{ url_for('cca', slug=biggest.slug) }}">{{ biggest.name }}</a> with {{ biggest.members }} members.</p>
+<p><a class="button" href="{{ url_for('ccas') }}">Browse all CCAs</a></p>
+{% endblock %}

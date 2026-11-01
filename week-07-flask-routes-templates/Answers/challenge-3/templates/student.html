@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ s.name }} · Class Results{% endblock %}
+{% block content %}
+<h1>{{ s.name }}</h1>
+<p>Class {{ s['class'] }} · average {{ avg }}</p>
+<ul>
+  {% for subject, score in s.scores.items() %}
+  <li>{{ subject }}: {{ score }}{% if score < 50 %} (needs help){% endif %}</li>
+  {% endfor %}
+</ul>
+<p><a href="{{ url_for('by_class', code=s['class']) }}">&larr; Back to {{ s['class'] }}</a></p>
+{% endblock %}

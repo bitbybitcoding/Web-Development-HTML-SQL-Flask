@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ heading }} · CCA Showcase{% endblock %}
+{% block content %}
+<h1>{{ heading }}</h1>
+<ul class="cards">
+  {% for c in ccas %}
+  <li class="card">
+    <h3><a href="{{ url_for('cca', slug=c.slug) }}">{{ c.name }}</a></h3>
+    <span class="tag">{{ c.category }}</span>
+    <p>{{ c.day }}s · {{ c.venue }}</p>
+    {% if c.members == 0 %}<p class="new">New club: be the first member!</p>
+    {% else %}<p>{{ c.members }} member{{ 's' if c.members != 1 }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

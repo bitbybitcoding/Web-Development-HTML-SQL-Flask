@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hello, {{ name|title }}!</h1>
+<p>Your name has {{ name|length }} characters.</p>
+<p>Try <code>/hello/&lt;i&gt;Amy</code> in the address bar: the tags are shown as text, not run.</p>
+{% endblock %}
