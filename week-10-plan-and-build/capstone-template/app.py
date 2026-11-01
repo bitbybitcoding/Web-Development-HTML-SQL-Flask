@@ -5,6 +5,7 @@ Run:             flask --app app run --debug
 Reset the data:  flask --app app init-db        (this DELETES the database and starts again)
 Test:            python3 -m unittest discover -s tests
 """
+import os
 import sqlite3
 from pathlib import Path
 
@@ -14,7 +15,7 @@ from flask import Flask, abort, flash, g, redirect, render_template, request, ur
 BASE = Path(__file__).resolve().parent
 
 app = Flask(__name__)
-app.secret_key = "change-me-before-you-deploy"          # Week 11: read this from an environment variable
+app.secret_key = os.environ.get("SECRET_KEY", "dev-only-change-me")   # on a real server, set SECRET_KEY (see Week 11)
 app.config["DATABASE"] = str(Path(app.instance_path) / "app.db")
 
 
