@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Kits</h1>
+<form method="get" action="{{ url_for('index') }}">
+  <label for="q">Search</label>
+  <input type="search" id="q" name="q" value="{{ q }}">
+  <label for="category">Category</label>
+  <select id="category" name="category">
+    <option value="">All categories</option>
+    {% for c in categories %}<option value="{{ c.category_id }}" {{ 'selected' if cat == c.category_id|string }}>{{ c.name }}</option>{% endfor %}
+  </select>
+  <button type="submit">Filter</button>
+</form>
+{% if kits %}
+<table>
+  <tr><th>Kit</th><th>Category</th><th>Available</th></tr>
+  {% for k in kits %}
+  <tr class="{{ 'good' if k.available == k.total_qty }}">
+    <td><a href="{{ url_for('kit', kit_id=k.kit_id) }}">{{ k.name }}</a></td>
+    <td>{{ k.category }}</td>
+    <td>{{ k.available }} of {{ k.total_qty }}{% if k.available == 0 %} <span class="error">(all out)</span>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No kits match. <a href="{{ url_for('new_kit') }}">Add one?</a></p>
+{% endif %}
+{% endblock %}

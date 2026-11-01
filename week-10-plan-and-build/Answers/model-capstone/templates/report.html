@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Report{% endblock %}
+{% block content %}
+<h1>Report</h1>
+<h2>By category</h2>
+<table>
+  <tr><th>Category</th><th>Kits</th><th>Owned</th><th>Out now</th></tr>
+  {% for r in by_category %}<tr><td>{{ r.name }}</td><td>{{ r.kits }}</td><td>{{ r.owned if r.owned is not none else 0 }}</td><td>{{ r.out_now }}</td></tr>{% endfor %}
+</table>
+<h2>Borrowers</h2>
+<table>
+  <tr><th>Borrower</th><th>Loans</th><th>Items</th></tr>
+  {% for r in borrowers %}<tr><td>{{ r.borrower }}</td><td>{{ r.loans }}</td><td>{{ r.items }}</td></tr>{% endfor %}
+</table>
+<h2>Never borrowed</h2>
+{% if never %}<ul>{% for r in never %}<li>{{ r.name }}</li>{% endfor %}</ul>{% else %}<p>Every kit has been borrowed at least once.</p>{% endif %}
+{% endblock %}

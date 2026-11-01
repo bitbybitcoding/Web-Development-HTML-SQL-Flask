@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'Edit item' if editing else 'Add an item' }}</h1>
+<form method="post" novalidate action="{{ url_for('edit_item', item_id=item_id) if editing else url_for('new_item') }}">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="{{ form.name }}">
+  {% if errors.name %}<p class="error">{{ errors.name }}</p>{% endif %}
+
+  <label for="category_id">Category</label>
+  <select id="category_id" name="category_id">
+    <option value="">Choose...</option>
+    {% for c in categories %}<option value="{{ c.category_id }}" {{ 'selected' if form.category_id == c.category_id|string }}>{{ c.name }}</option>{% endfor %}
+  </select>
+  {% if errors.category_id %}<p class="error">{{ errors.category_id }}</p>{% endif %}
+
+  <label for="quantity">Quantity</label>
+  <input type="text" inputmode="numeric" id="quantity" name="quantity" value="{{ form.quantity }}">
+  {% if errors.quantity %}<p class="error">{{ errors.quantity }}</p>{% endif %}
+
+  <label for="notes">Notes (optional)</label>
+  <textarea id="notes" name="notes" rows="3">{{ form.notes }}</textarea>
+
+  <button type="submit">Save</button>
+</form>
+{% endblock %}
