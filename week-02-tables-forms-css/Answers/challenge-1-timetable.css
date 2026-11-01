@@ -1,0 +1,50 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 1rem;
+  color: #222;
+}
+
+h1 { color: #5b21b6; }
+
+.scroll { overflow-x: auto; }          /* table scrolls sideways on narrow screens */
+
+.timetable {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 36rem;
+}
+
+.timetable caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.timetable th,
+.timetable td {
+  border: 1px solid #a78bfa;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.timetable thead th {
+  background: #5b21b6;
+  color: white;
+}
+
+.timetable tbody th {
+  background: #ede9fe;
+}
+
+.timetable tbody tr:nth-child(even) td { background: #faf8ff; }
+.timetable tbody tr:hover td { background: #fef3c7; }
+
+.timetable td.recess {
+  background: #fde68a !important;
+  font-style: italic;
+  letter-spacing: 0.3em;
+}

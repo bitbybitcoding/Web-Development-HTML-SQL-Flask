@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Student Registration</h1>
+
+    <!-- Try method="get" first, then change it to method="post" -->
+    <form action="/submit" method="get">
+
+      <p>
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="e.g. Aisha Rahman">
+      </p>
+
+      <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </p>
+
+      <p>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="13" max="22">
+      </p>
+
+      <p>
+        <label for="dob">Date of birth</label>
+        <input type="date" id="dob" name="dob">
+      </p>
+
+      <p>
+        <label for="level">Level</label>
+        <select id="level" name="level">
+          <option value="">-- choose --</option>
+          <option value="sec3">Secondary 3</option>
+          <option value="sec4">Secondary 4</option>
+          <option value="jc1">JC 1</option>
+        </select>
+      </p>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <label><input type="radio" name="gender" value="F"> Female</label>
+        <label><input type="radio" name="gender" value="M"> Male</label>
+        <label><input type="radio" name="gender" value="X"> Prefer not to say</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Interests</legend>
+        <label><input type="checkbox" name="interest" value="coding"> Coding</label>
+        <label><input type="checkbox" name="interest" value="sports"> Sports</label>
+        <label><input type="checkbox" name="interest" value="music"> Music</label>
+      </fieldset>
+
+      <p>
+        <label for="about">About you</label>
+        <textarea id="about" name="about" rows="4"></textarea>
+      </p>
+
+      <p>
+        <button type="submit">Register</button>
+      </p>
+    </form>
+  </main>
+</body>
+</html>

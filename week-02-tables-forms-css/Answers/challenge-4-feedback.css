@@ -1,0 +1,108 @@
+/* Three colours only, defined once and reused everywhere. */
+:root {
+  --main: #5b21b6;      /* deep purple */
+  --accent: #f59e0b;    /* amber */
+  --neutral: #f5f3ff;   /* pale lavender */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1f1f1f;
+  background: var(--neutral);
+  margin: 0;
+}
+
+header {
+  background: var(--main);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 { margin: 0 0 0.25rem; }
+header p { margin: 0; }
+
+.card {
+  max-width: 40rem;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid var(--main);
+  border-radius: 14px;
+}
+
+/* two fields side by side on wide screens, stacked on narrow ones */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+.row > p {
+  flex: 1 1 14rem;
+  margin: 0 0 1rem;
+}
+
+label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+
+input[type="text"], input[type="email"], input[type="number"], select, textarea {
+  width: 100%;
+  padding: 0.65rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--main);
+  border-radius: 8px;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+fieldset {
+  border: 1px solid var(--main);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0 0 1rem;
+}
+
+fieldset legend { font-weight: 600; color: var(--main); padding: 0 0.4rem; }
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  font-weight: normal;
+  margin: 0;
+}
+
+button {
+  min-height: 44px;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(0.92); }
+
+footer {
+  text-align: center;
+  color: var(--main);
+  padding: 1rem;
+}
+
+@media (max-width: 600px) {
+  .card { margin: 1rem 0.5rem; padding: 1rem; }
+}

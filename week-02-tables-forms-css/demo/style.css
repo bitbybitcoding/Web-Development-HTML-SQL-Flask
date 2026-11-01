@@ -1,0 +1,110 @@
+/* Week 2 demo stylesheet.
+   Built up step by step in the demo: selectors, colours, box model, flexbox. */
+
+/* 1. Element selectors: style every element of that type */
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #222;
+  background-color: #faf8ff;
+  margin: 0;
+  padding: 1rem;
+}
+
+h1 {
+  color: #5b21b6;          /* hex colour */
+}
+
+/* 2. Class selector: style anything with class="card" */
+.card {
+  max-width: 32rem;
+  margin: 1rem auto;       /* auto left/right centres the box */
+  padding: 1.5rem;         /* space INSIDE the border */
+  border: 2px solid #c4b5fd;
+  border-radius: 12px;
+  background: white;
+}
+
+/* 3. Box model: width + padding + border (+ margin) */
+* {
+  box-sizing: border-box;  /* make width include padding and border */
+}
+
+/* 4. Form controls */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;         /* at least 16px so iPad Safari does not zoom in */
+  border: 1px solid #999;
+  border-radius: 6px;
+}
+
+fieldset label {
+  display: inline-block;   /* radio and checkbox labels sit side by side */
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
+button {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #5b21b6;
+}
+
+/* 5. Tables */
+.timetable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.timetable th,
+.timetable td {
+  border: 1px solid #c4b5fd;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+.timetable thead th {
+  background: #ede9fe;
+}
+
+/* 6. id selector: matches ONE element on the page */
+#special {
+  background: yellow;
+}
+
+.recess {
+  background: #fef3c7;
+  font-style: italic;
+}
+
+/* 7. Flexbox: lay children out in a row */
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;         /* wrap onto a new line on narrow screens */
+}
+
+.row > * {
+  flex: 1 1 12rem;         /* grow, shrink, start at 12rem wide */
+}

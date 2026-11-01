@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class 3A Timetable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Class 3A Timetable</h1>
+
+  <table class="timetable">
+    <caption>Term 4, Week 1</caption>
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Monday</th>
+        <th scope="col">Tuesday</th>
+        <th scope="col">Wednesday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">8:00 - 8:40</th>
+        <td rowspan="2">Mathematics (double period)</td>
+        <td>English</td>
+        <td>Computing</td>
+      </tr>
+      <tr>
+        <th scope="row">8:40 - 9:20</th>
+        <!-- Monday's cell is already covered by the rowspan above -->
+        <td>PE</td>
+        <td>Physics</td>
+      </tr>
+      <tr>
+        <th scope="row">9:20 - 9:40</th>
+        <td colspan="3" class="recess">RECESS</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

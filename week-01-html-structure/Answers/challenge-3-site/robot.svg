@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140" role="img" aria-label="Cartoon robot">
+  <rect width="140" height="140" rx="20" fill="#ede9fe"/>
+  <line x1="70" y1="14" x2="70" y2="30" stroke="#6d28d9" stroke-width="4"/>
+  <circle cx="70" cy="12" r="6" fill="#f59e0b"/>
+  <rect x="34" y="30" width="72" height="56" rx="12" fill="#8b5cf6"/>
+  <circle cx="54" cy="55" r="9" fill="#fff"/><circle cx="86" cy="55" r="9" fill="#fff"/>
+  <circle cx="54" cy="55" r="4" fill="#222"/><circle cx="86" cy="55" r="4" fill="#222"/>
+  <rect x="52" y="72" width="36" height="6" rx="3" fill="#fff"/>
+  <rect x="42" y="92" width="56" height="34" rx="8" fill="#6d28d9"/>
+  <rect x="22" y="94" width="16" height="8" rx="4" fill="#8b5cf6"/>
+  <rect x="102" y="94" width="16" height="8" rx="4" fill="#8b5cf6"/>
+</svg>

@@ -1,0 +1,53 @@
+{
+  "name": "Web Development: HTML, SQL & Flask",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+
+  // A 2-core machine is plenty for this course.
+  "hostRequirements": {
+    "cpus": 2
+  },
+
+  // Installs the sqlite3 command-line tool, Flask, and a friendlier sqlite3 setup.
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  // Flask runs on port 5000; Codespaces forwards it so it opens in a browser tab (works on iPad).
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": {
+      "label": "Flask app",
+      "onAutoForward": "openBrowser"
+    },
+    "8000": {
+      "label": "Static HTML preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    },
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "qwtel.sqlite-viewer",
+        "samuelcolvin.jinjahtml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.fontSize": 16,
+        "editor.tabSize": 4,
+        "editor.wordWrap": "on",
+        "editor.minimap.enabled": false,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "terminal.integrated.fontSize": 15,
+        "[html]": { "editor.tabSize": 2 },
+        "[jinja-html]": { "editor.tabSize": 2 },
+        "[css]": { "editor.tabSize": 2 },
+        "[sql]": { "editor.tabSize": 2 }
+      }
+    }
+  }
+}

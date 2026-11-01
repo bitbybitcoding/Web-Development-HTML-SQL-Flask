@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- FIXED #1: the DOCTYPE line above was missing -->
+<!-- FIXED #2: added lang attribute -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- FIXED #3: <title> must be inside <head> -->
+  <title>Mei's Pet Shop</title>
+</head>
+<body>
+  <header>
+    <!-- FIXED #4: the <h1> was never closed -->
+    <h1>Mei's Pet Shop</h1>
+    <nav>
+      <!-- FIXED #5: link had no href -->
+      <a href="index.html">Home</a> |
+      <!-- FIXED #6: attribute value must be quoted, and file names should not contain spaces -->
+      <a href="about-page.html">About us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Welcome</h2>
+    <!-- FIXED #7: tags must be closed in the reverse order they were opened (and strong/em carry meaning) -->
+    <p>We sell <strong><em>happy</em></strong> pets, food and toys.</p>
+    <!-- FIXED #8: images need alt text -->
+    <img src="cat.jpg" alt="A tabby cat sitting in the shop window" width="200">
+
+    <h2>Today's specials</h2>
+    <!-- FIXED #9: a list can only contain <li>, and a <ul> cannot sit inside a <p> -->
+    <p>Come in before 6 pm for these deals:</p>
+    <ul>
+      <li>Goldfish, 2 for $5</li>
+      <li>Hamster cage, 20% off</li>
+      <li>Cat food, buy 1 get 1 free</li>
+    </ul>
+  <!-- FIXED #10: <main> was never closed -->
+  </main>
+
+  <footer>
+    <p>Open every day, 10 am to 9 pm.</p>
+  </footer>
+</body>
+</html>

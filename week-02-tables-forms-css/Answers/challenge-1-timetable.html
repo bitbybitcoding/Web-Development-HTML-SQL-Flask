@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class 3A Timetable</title>
+  <link rel="stylesheet" href="challenge-1-timetable.css">
+</head>
+<body>
+  <h1>Class 3A Timetable</h1>
+
+  <div class="scroll">
+    <table class="timetable">
+      <caption>Term 4, Week 1</caption>
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th scope="col">Monday</th>
+          <th scope="col">Tuesday</th>
+          <th scope="col">Wednesday</th>
+          <th scope="col">Thursday</th>
+          <th scope="col">Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">8:00 - 8:40</th>
+          <td rowspan="2">Mathematics</td>
+          <td>English</td>
+          <td rowspan="2">Computing</td>
+          <td rowspan="2">Physics</td>
+          <td>General Paper</td>
+        </tr>
+        <tr>
+          <th scope="row">8:40 - 9:20</th>
+          <!-- Monday, Wednesday and Thursday are covered by the rowspans above -->
+          <td>PE</td>
+          <td>Chemistry</td>
+        </tr>
+        <tr>
+          <th scope="row">9:20 - 9:40</th>
+          <td colspan="5" class="recess">RECESS</td>
+        </tr>
+        <tr>
+          <th scope="row">9:40 - 10:20</th>
+          <td rowspan="2">Chemistry</td>
+          <td>Mathematics</td>
+          <td>Physics</td>
+          <td>English</td>
+          <td rowspan="2">Computing</td>
+        </tr>
+        <tr>
+          <th scope="row">10:20 - 11:00</th>
+          <!-- Monday and Friday are covered by the rowspans above -->
+          <td>Library</td>
+          <td>Mother Tongue</td>
+          <td>Mother Tongue</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyBuddy Feedback</title>
+  <link rel="stylesheet" href="challenge-4-feedback.css">
+</head>
+<body>
+  <header>
+    <h1>StudyBuddy</h1>
+    <p>Tell us how we can make your homework planner better.</p>
+  </header>
+
+  <main class="card">
+    <form action="/submit" method="post">
+
+      <div class="row">
+        <p>
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </p>
+        <p>
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </p>
+      </div>
+
+      <div class="row">
+        <p>
+          <label for="feature">Feature you used most</label>
+          <select id="feature" name="feature">
+            <option value="planner">Homework planner</option>
+            <option value="reminders">Reminders</option>
+            <option value="timer">Study timer</option>
+            <option value="calendar">Calendar</option>
+          </select>
+        </p>
+        <p>
+          <label for="hours">Hours of study per week</label>
+          <input type="number" id="hours" name="hours" min="0" max="80">
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>Overall rating</legend>
+        <label><input type="radio" name="rating" value="1" required> 1</label>
+        <label><input type="radio" name="rating" value="2"> 2</label>
+        <label><input type="radio" name="rating" value="3"> 3</label>
+        <label><input type="radio" name="rating" value="4"> 4</label>
+        <label><input type="radio" name="rating" value="5"> 5</label>
+      </fieldset>
+
+      <p>
+        <label for="comments">What should we improve?</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+      </p>
+
+      <p><button type="submit">Send feedback</button></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 StudyBuddy</p>
+  </footer>
+</body>
+</html>
