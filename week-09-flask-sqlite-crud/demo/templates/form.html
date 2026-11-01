@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if editing else 'Add' }} student{% endblock %}
+{% block content %}
+<h1>{{ 'Edit student' if editing else 'Add a student' }}</h1>
+<form method="post" novalidate
+      action="{{ url_for('edit', student_id=student_id) if editing else url_for('create') }}">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="{{ form.name }}">
+  {% if errors.name %}<p class="error">{{ errors.name }}</p>{% endif %}
+
+  <label for="class">Class</label>
+  <select id="class" name="class">
+    <option value="">Choose...</option>
+    {% for c in classes %}<option value="{{ c }}" {{ 'selected' if form['class'] == c }}>{{ c }}</option>{% endfor %}
+  </select>
+  {% if errors['class'] %}<p class="error">{{ errors['class'] }}</p>{% endif %}
+
+  <fieldset>
+    <legend>Gender</legend>
+    <label><input type="radio" name="gender" value="F" {{ 'checked' if form.gender == 'F' }}> F</label>
+    <label><input type="radio" name="gender" value="M" {{ 'checked' if form.gender == 'M' }}> M</label>
+  </fieldset>
+  {% if errors.gender %}<p class="error">{{ errors.gender }}</p>{% endif %}
+
+  <label for="dob">Date of birth (YYYY-MM-DD)</label>
+  <input type="text" id="dob" name="dob" value="{{ form.dob }}" inputmode="numeric">
+  {% if errors.dob %}<p class="error">{{ errors.dob }}</p>{% endif %}
+
+  <label for="email">Email (optional)</label>
+  <input type="text" id="email" name="email" value="{{ form.email }}" inputmode="email">
+  {% if errors.email %}<p class="error">{{ errors.email }}</p>{% endif %}
+
+  <button type="submit">{{ 'Save changes' if editing else 'Add student' }}</button>
+</form>
+{% endblock %}

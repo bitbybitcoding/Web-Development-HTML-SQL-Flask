@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Overdue books</h1>
+{% if rows %}
+<table>
+  <tr><th>Book</th><th>Borrower</th><th>Due</th><th>Days late</th></tr>
+  {% for r in rows %}<tr><td><a href="{{ url_for('book', book_id=r.book_id) }}">{{ r.title }}</a></td><td>{{ r.borrower }}</td><td>{{ r.due_on }}</td><td>{{ r.days_late }}</td></tr>{% endfor %}
+</table>
+{% else %}<p>Nothing is overdue.</p>{% endif %}
+{% endblock %}

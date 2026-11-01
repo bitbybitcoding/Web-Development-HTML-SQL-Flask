@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Subject report{% endblock %}
+{% block content %}
+<h1>Subject report</h1>
+<table>
+  <tr><th>Subject</th><th>Teacher</th><th>Sat</th><th>Average</th><th>Best</th><th>Lowest</th></tr>
+  {% for r in rows %}
+  <tr><td>{{ r.name }}</td><td>{{ r.teacher }}</td><td>{{ r.sat }}</td><td>{{ r.average }}</td><td>{{ r.best }}</td><td>{{ r.lowest }}</td></tr>
+  {% endfor %}
+</table>
+<p class="muted">Computed by one SQL query: a LEFT JOIN with GROUP BY. "Sat" counts only non-NULL scores.</p>
+{% endblock %}

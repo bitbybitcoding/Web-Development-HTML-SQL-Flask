@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ c.name }}{% endblock %}
+{% block content %}
+<h1>{{ c.name }}</h1>
+<p>{{ c.category }} · {{ c.day }}s · {{ members|length }} member{{ 's' if members|length != 1 }}</p>
+
+{% if members %}
+<table>
+  <tr><th>Name</th><th>Class</th><th>Role</th><th></th></tr>
+  {% for m in members %}
+  <tr>
+    <td><a href="{{ url_for('student', student_id=m.student_id) }}">{{ m.name }}</a></td>
+    <td>{{ m['class'] }}</td><td>{{ m.role }}</td>
+    <td><form method="post" action="{{ url_for('leave', cca_id=c.cca_id, student_id=m.student_id) }}"><button type="submit">Remove</button></form></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="muted">Nobody has joined yet.</p>
+{% endif %}
+
+<h2>Add a member</h2>
+<form method="post" action="{{ url_for('join', cca_id=c.cca_id) }}">
+  <label for="student_id">Student</label>
+  <select id="student_id" name="student_id">
+    <option value="">Choose...</option>
+    {% for s in available %}<option value="{{ s.student_id }}">{{ s.name }} ({{ s['class'] }})</option>{% endfor %}
+  </select>
+  <label for="role">Role</label>
+  <select id="role" name="role">{% for r in roles %}<option>{{ r }}</option>{% endfor %}</select>
+  <button type="submit">Add</button>
+</form>
+
+<div class="actions">
+  <form method="post" action="{{ url_for('delete_cca', cca_id=c.cca_id) }}"><button class="danger" type="submit">Delete this CCA</button></form>
+  <a href="{{ url_for('ccas') }}">&larr; All CCAs</a>
+</div>
+{% endblock %}

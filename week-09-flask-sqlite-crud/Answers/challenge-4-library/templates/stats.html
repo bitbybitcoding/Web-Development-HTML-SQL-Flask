@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Statistics</h1>
+<h2>Most borrowed</h2>
+<table><tr><th>Title</th><th>Times</th></tr>{% for r in popular %}<tr><td>{{ r.title }}</td><td>{{ r.times }}</td></tr>{% endfor %}</table>
+<h2>Readers</h2>
+<table><tr><th>Borrower</th><th>Loans</th></tr>{% for r in readers %}<tr><td>{{ r.borrower }}</td><td>{{ r.loans }}</td></tr>{% endfor %}</table>
+<h2>Never borrowed</h2>
+<ul>{% for r in never %}<li>{{ r.title }}</li>{% endfor %}</ul>
+{% endblock %}

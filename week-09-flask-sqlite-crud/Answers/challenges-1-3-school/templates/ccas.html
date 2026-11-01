@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}CCAs{% endblock %}
+{% block content %}
+<h1>CCAs</h1>
+<p class="filters">
+  <a href="{{ url_for('ccas') }}">All</a>
+  {% for c in categories %}<a href="{{ url_for('ccas', category=c) }}">{{ c }}</a>{% endfor %}
+</p>
+<table>
+  <tr><th>CCA</th><th>Category</th><th>Day</th><th>Members</th></tr>
+  {% for c in ccas %}
+  <tr>
+    <td><a href="{{ url_for('cca', cca_id=c.cca_id) }}">{{ c.name }}</a></td>
+    <td>{{ c.category }}</td><td>{{ c.day }}</td>
+    <td>{{ c.members }}{% if c.members == 0 %} <span class="muted">(no members yet)</span>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
